@@ -25,17 +25,16 @@ class Home extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <h1>React.js News</h1>
-          {this.props.news.map(item => (
-            <article key={item.link} className={s.newsItem}>
-              <h1 className={s.newsTitle}><a href={item.link}>{item.title}</a></h1>
-              <div
-                className={s.newsDesc}
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: item.content }}
-              />
-            </article>
-          ))}
+          <h1>Your location is</h1>
+            <iframe
+              style={{border: 0, width: '100%', minHeight: 500}}
+              frameBorder="0" 
+              allowFullScreen
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBQsV-QF4G-CJi22R7oaLOKzUGkaZvhHYI
+    &q=Space+Needle,Seattle+WA" 
+            >
+            </iframe>
+
         </div>
       </div>
     );

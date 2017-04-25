@@ -10,11 +10,11 @@
 @import '../variables.css';
 
 :root {
-  --brand-color: #61dafb;
+  --brand-color: #d9d9d9;
 }
 
 .root {
-  background: #373277;
+  background: #4484ce;
   color: #fff;
 }
 
