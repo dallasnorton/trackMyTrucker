@@ -30,6 +30,8 @@ module.exports = {
     },
 
     rules: {
+      'linebreak-style': 0,
+
       // `js` and `jsx` are common extensions
       // `mjs` is for `universal-router` only, for now
       'import/extensions': [

@@ -8,33 +8,22 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Home.css';
 
-class Home extends React.Component {
-  static propTypes = {
-    news: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-      content: PropTypes.string,
-    })).isRequired,
-  };
+// import GeoLocationExample from './GeoLocationExample';
+let location;
 
+navigator.geolocation.getCurrentPosition((position) => {
+  location = `${position.coords.latitude}, ${position.coords.longitude}`;
+});
+
+class Home extends React.Component {
   render() {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <h1>Your location is</h1>
-            <iframe
-              style={{border: 0, width: '100%', minHeight: 500}}
-              frameBorder="0" 
-              allowFullScreen
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBQsV-QF4G-CJi22R7oaLOKzUGkaZvhHYI
-    &q=Space+Needle,Seattle+WA" 
-            >
-            </iframe>
-
+          <h1>Your location is: {location}</h1>
         </div>
       </div>
     );
@@ -42,3 +31,23 @@ class Home extends React.Component {
 }
 
 export default withStyles(s)(Home);
+
+// <GettingStartedGoogleMap
+//   containerElement={
+//     <div style={{ height: '100%' }} />
+//   }
+//   mapElement={
+//     <div style={{ height: '100%' }} />
+//   }
+//   onMapLoad={_.noop}
+//   onMapClick={_.noop}
+//   markers={markers}
+//   onMarkerRightClick={_.noop}
+// />
+
+// <iframe
+//   style={{ border: 0, width: '100%', minHeight: 500 }}
+//   frameBorder="0"
+//   allowFullScreen
+//   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBQsV-QF4G-CJi22R7oaLOKzUGkaZvhHYI&q=Space+Needle,Seattle+WA"
+// />
